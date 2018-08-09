@@ -1,0 +1,13 @@
+.row
+  aside.col-xs-4
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+          = @user.name
+      .panel-body
+        img.media-object.img-rounded.img-responsive src="#{gravatar_url(@user, {size: 500})}" alt=""
+  .col-xs-8
+    ul.nav.nav-tabs.nav-justified
+      li Microposts
+      li Followings
+      li Followers

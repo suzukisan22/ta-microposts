@@ -10,10 +10,21 @@
   .col-xs-8
     ul.nav.nav-tabs.nav-justified
       - is_active = "active" if current_page?(user_path(@user))
+      - is_followings_active = "active" if current_page?(followings_user_path(@user))
+      - is_followers_active = "active" if current_page?(followers_user_path(@user))
       li class=(is_active)
         = link_to user_path(@user) do
           | Microposts
           span.badge
             = @count_microposts
-      li Followings
-      li Followers
+      li class=(is_followings_active)
+        = link_to followings_user_path(@user) do
+          | Followings
+          span.badge
+            = @count_followings
+      li class=(is_followers_active)
+        = link_to followers_user_path(@user) do
+          | Followers
+          span.badge
+            = @count_followers
+    = render 'users', users: @followers

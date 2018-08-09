@@ -27,5 +27,6 @@ module TaMicroposts
       g.helper false
       g.skip_routes
     end
+    config.generators.template_engine = :slim
   end
 end

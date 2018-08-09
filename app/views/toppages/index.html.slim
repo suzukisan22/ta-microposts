@@ -1,7 +1,12 @@
 - if logged_in?
-  p
-    | ログイン完了ユーザ: 
-    = current_user.name
+  .row
+    aside.col-md-4
+      = form_for(@micropost) do |f|
+        .form-group
+          = f.text_area :content, class: "form-control", rows: 5
+        = f.submit 'Post', class: "btn btn-primary btn-block"
+    .col-xs-8
+      = render 'microposts/microposts', microposts: @microposts
 - else
   .center.jumbotron
     .text-center

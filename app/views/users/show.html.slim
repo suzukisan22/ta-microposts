@@ -8,6 +8,11 @@
         img.media-object.img-rounded.img-responsive src="#{gravatar_url(@user, {size: 500})}" alt=""
   .col-xs-8
     ul.nav.nav-tabs.nav-justified
-      li Microposts
+      - is_active = "active" if current_page?(user_path(@user))
+      li class=(is_active)
+        = link_to user_path(@user) do
+          | Microposts
+          span.badge
+            = @count_microposts
       li Followings
       li Followers

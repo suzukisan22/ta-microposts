@@ -1,0 +1,18 @@
+ul.media-list
+  - microposts.each do |micropost|
+    .media
+      .media-left
+        img.media-object.img-rounded src="#{gravatar_url(micropost.user, { size: 50 })}" alt=""
+      .media-body
+        div
+          = link_to micropost.user.name, user_path(micropost.user)
+          | &nbsp;
+          span.text-muted
+            | posted at #{micropost.created_at}
+        div
+          p = micropost.content
+        div
+          - if current_user == micropost.user
+            = link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs'
+
+  = paginate microposts

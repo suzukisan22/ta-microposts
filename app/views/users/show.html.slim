@@ -15,5 +15,19 @@
           | Microposts
           span.badge
             = @count_microposts
-      li Followings
-      li Followers
+      li
+        = link_to followings_user_path(@user) do
+          | Followings
+          span.badge
+            = @count_followings
+      li
+        = link_to followers_user_path(@user) do
+          | Followers
+          span.badge
+            = @count_followers
+      li
+        = link_to likes_user_path(@user) do
+          | Likes
+          span.badge
+            = @count_like_microposts
+    = render 'microposts/microposts', microposts: @microposts

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root to: 'toppages#index'
 
   get 'login', to: 'sessions#new'
@@ -17,4 +16,6 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :likes, only: [:create, :destroy]
 end

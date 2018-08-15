@@ -57,3 +57,5 @@ gem 'kaminari'
 gem 'html2slim'
 
 gem 'slim-rails'
+
+gem 'font-awesome-rails'

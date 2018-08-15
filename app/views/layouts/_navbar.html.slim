@@ -20,6 +20,8 @@ header
               ul.dropdown-menu
                 li
                   = link_to 'My profile', user_path(current_user)
+                li
+                  = link_to 'My Likes', likes_user_path(current_user)
                 li.divider role="separator"
                 li
                   = link_to 'Logout', logout_path, method: :delete

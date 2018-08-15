@@ -14,5 +14,9 @@ ul.media-list
         div
           - if current_user == micropost.user
             = link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs'
+        
+        - unless current_page?(likes_user_path(current_user))
+          div id=("like_form_#{micropost.id}")
+            = render "likes/like_micropost", micropost: micropost
 
   = paginate microposts

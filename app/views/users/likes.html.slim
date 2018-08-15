@@ -9,13 +9,13 @@
     = render 'relationships/follow_button', user: @user
   .col-xs-8
     ul.nav.nav-tabs.nav-justified
-      - is_active = "active" if current_page?(followings_user_path(@user))
+      - is_active = "active" if current_page?(likes_user_path(@user))
       li
         = link_to user_path(@user) do
           | Microposts
           span.badge
             = @count_microposts
-      li class=(is_active)
+      li
         = link_to followings_user_path(@user) do
           | Followings
           span.badge
@@ -25,9 +25,10 @@
           | Followers
           span.badge
             = @count_followers
-      li
+      li class=(is_active)
         = link_to likes_user_path(@user) do
           | Likes
           span.badge
             = @count_like_microposts
-    = render 'users', users: @followings
+
+    = render 'microposts/microposts', microposts: @microposts
